@@ -1,32 +1,54 @@
-class Car(type:String, model:String, price:Int, owner:String, miles:Int){
+fun main() {
+    val car1 = Car("BMW, 2018", "Aman", 105, 100000.0, 98950.0)
+    car1.getCarFullDetails()
 
-    var ty:String = type
-    var mo =model
-    var p:Int = price
-    var ow = owner
-    var m:Int = miles
-    fun getCarInformation() {
-        println("Selling Price of Car: " + (p - m).toString() + "rs")
-        println("Actual price: " + p.toString() + "rs")
-        println("Total Kms: " + m.toString())
-        println("car model:" + mo.toString())
-        println("car owner: " + ow.toString())
-        println("car miles: " + m.toString())
-        println()
+    val car2 = Car("BMW, 2019", "Karan", 20, 400000.0, 399800.0)
+    car2.getCarFullDetails()
 
-    }
-    fun getOriginalCarPrice() {
-        println("Actual price: " + p.toString() + "rs")
-        println()
+    val Cars = ArrayList<Car> (2)
+    val car3 = Car("Toyota, 2017","KJS",100,1080000.0,1079000.0)
+    val car4 = Car("Maruti, 2020","NPP",200,4000000.0,3998000.0)
+    Cars.add(car3)
+    Cars.add(car4)
 
+    for (i in Cars){
+        println("-------------------")
+        i.getCarFullDetails()
     }
 }
-fun main() {
-    var c1 = Car("TATA", "Nexon", 125000, "Ratan Tata", 10000)
-    c1.getCarInformation()
-    var c2 = Car(" SUV", "Baleno", 100000, "Hitesh", 50000)
-    c2.getCarInformation()
-    println("========================================")
-    c1.getOriginalCarPrice()
-    c2.getOriginalCarPrice()
+
+class Car(private val model: String, private val owner: String, private val miles: Int, private val original: Double, private val current: Double) {
+    init {
+        println("Object of class is Created and Init is Called.")
+    }
+
+    private fun info(): String {
+        return model
+    }
+
+    private fun carowner(): String {
+        return owner
+    }
+
+    private fun milesDrive(): Int {
+        return miles
+    }
+
+    private fun orgprice(): Double {
+        return original
+    }
+
+    private fun currprice(): Double {
+        return current
+    }
+
+    fun getCarFullDetails() {
+        println("===================")
+        println("Car Information : ${info()}")
+        println("Car owner : ${carowner()}")
+        println("Miles Drive : ${milesDrive()}")
+        println("Original Car Price : ${orgprice()}")
+        println("Current Car Price : ${currprice()}")
+        println("===================\n")
+    }
 }
