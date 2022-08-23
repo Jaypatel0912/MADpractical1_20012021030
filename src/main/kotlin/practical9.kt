@@ -1,18 +1,17 @@
-fun findmaxnum(arr:Array<Int>) {
-    var max = arr[0]
-    var count = 0
-    for (i in arr) {
-        println("a[$count] = $i")
-        if (i > max) {
-            max = i
+fun main() {
+    print("Enter Elements : ")
+    val n:Int = readLine()!!.toInt()
+    val nums = ArrayList<Int>()
+    var maxnum = 0
+    for (i:Int in 0 until n){
+        print("nums[$i] = ")
+        nums.add(i,readLine()!!.toInt())
+        if (maxnum<nums[i]){
+            maxnum = nums[i]
         }
-        count++
     }
-    println(max)
-}
-fun main()
-{
-    var arr = arrayOf(47, 81, 20, 13, 55, 14)
-    findmaxnum(arr)
 
+    println()
+    println("Maximum Element from Array Without in-built Function : $maxnum")
+    println("Maximum Element from Array With in-built Function : ${nums.max()}")
 }
